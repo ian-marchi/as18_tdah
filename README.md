@@ -18,7 +18,7 @@ O projeto combina um fluxo de quiz acolhedor em React com uma API Flask respons�
 - Gunicorn para execução em produção
 - JSON como fonte de conteúdo
 - CSV/JSONL para persistência simples de leads
-- Railway com Railpack para deploy
+- Railway com Dockerfile para deploy
 
 ## Estrutura
 
@@ -65,18 +65,19 @@ python -m unittest backend.tests.test_scoring backend.tests.test_leads -v
 
 ## Deploy no Railway
 
-O repositório está preparado para deploy pela raiz com Railpack.
+O repositório está preparado para deploy pela raiz com Dockerfile.
 
 Arquivos importantes para o Railway:
 
+- `Dockerfile`
 - `railway.json`
 - `requirements.txt`
 - `run.py`
 
 Configuração de produção usada:
 
-- build command: `npm run build`
-- start command: `gunicorn --bind 0.0.0.0:$PORT run:app`
+- build: multi-stage no `Dockerfile` com Node + Python
+- start: `gunicorn --bind 0.0.0.0:$PORT run:app`
 
 Fluxo recomendado:
 
