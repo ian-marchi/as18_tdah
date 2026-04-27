@@ -36,7 +36,7 @@ jobs:
       - name: Build frontend for GitHub Pages
         working-directory: frontend
         env:
-          PAGES_BASE_PATH: /as18/
+          PAGES_BASE_PATH: /${{ github.event.repository.name }}/
           VITE_STATIC_DEPLOY: "true"
         run: npm run build
 
