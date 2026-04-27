@@ -9,7 +9,7 @@ export function ResultPage({ result, onRestart }) {
     <ScreenFrame
       eyebrow="Leitura do seu resultado"
       subtitle={result.supportingCopy.coreMessage}
-      title="O que esse padrao pode estar tentando te mostrar"
+      title="O que esse padrão pode estar tentando te mostrar"
       tone="warm"
     >
       <div className="result-layout">
@@ -20,7 +20,7 @@ export function ResultPage({ result, onRestart }) {
       <section className="result-panel narrative-panel">
         <div className="panel-heading">
           <p className="panel-kicker">Importante</p>
-          <h2>Contexto e cuidado antes do proximo passo</h2>
+          <h2>Contexto e cuidado antes do próximo passo</h2>
         </div>
 
         <p>{result.supportingCopy.disclaimer}</p>
@@ -29,7 +29,7 @@ export function ResultPage({ result, onRestart }) {
       <CTASection cta={result.cta} supportingCopy={result.supportingCopy} />
 
       <button className="ghost-button" onClick={onRestart} type="button">
-        Refazer o teste
+        Voltar para o início
       </button>
     </ScreenFrame>
   );

@@ -3,15 +3,15 @@ import { ScreenFrame } from "../components/ScreenFrame";
 
 const INTRO_POINTS = [
   "Responda pensando em como isso aparece no seu dia a dia.",
-  "Nao existe certo ou errado. O foco e identificacao, nao perfeicao.",
-  "A leitura final nao substitui avaliacao clinica, mas pode te dar direcao.",
+  "Não existe certo ou errado. O foco é identificação, não perfeição.",
+  "A leitura final não substitui avaliação clínica, mas pode te dar direção.",
 ];
 
 
 export function IntroPage({ screens, onContinue }) {
   return (
     <ScreenFrame
-      eyebrow="Respire antes de comecar"
+      eyebrow="Respire antes de começar"
       subtitle={screens.intro.body}
       title={screens.intro.title}
       footer={
@@ -32,4 +32,3 @@ export function IntroPage({ screens, onContinue }) {
     </ScreenFrame>
   );
 }
-

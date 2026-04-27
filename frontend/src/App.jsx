@@ -136,7 +136,7 @@ function App() {
         }
 
         setErrorMessage(
-          "Nao consegui carregar o teste agora. Tente novamente dentro de instantes.",
+          "Não consegui carregar o teste agora. Tente novamente dentro de instantes.",
         );
       } finally {
         if (isActive) {
@@ -194,7 +194,7 @@ function App() {
       });
     } catch (error) {
       setErrorMessage(
-        "Nao consegui salvar seus dados agora. Revise as informacoes e tente novamente.",
+        "Não consegui salvar seus dados agora. Revise as informações e tente novamente.",
       );
     } finally {
       setIsSavingLead(false);
@@ -207,6 +207,20 @@ function App() {
       setFlowState((currentState) => ({
         ...currentState,
         screen: "quiz",
+      }));
+    });
+  }
+
+  function handleBackQuestion() {
+    if (isSubmitting || flowState.currentQuestionIndex === 0) {
+      return;
+    }
+
+    setErrorMessage("");
+    startTransition(() => {
+      setFlowState((currentState) => ({
+        ...currentState,
+        currentQuestionIndex: Math.max(currentState.currentQuestionIndex - 1, 0),
       }));
     });
   }
@@ -256,7 +270,7 @@ function App() {
       });
     } catch (error) {
       setErrorMessage(
-        "Nao consegui calcular o resultado agora. Tente novamente em alguns segundos.",
+        "Não consegui calcular o resultado agora. Tente novamente em alguns segundos.",
       );
     } finally {
       setIsSubmitting(false);
@@ -275,8 +289,8 @@ function App() {
     return (
       <ScreenFrame
         eyebrow="Carregando o teste"
-        title="Preparando a experiencia..."
-        subtitle="Estamos organizando as perguntas para voce comecar sem distracoes."
+        title="Preparando a experiência..."
+        subtitle="Estamos organizando as perguntas para você começar sem distrações."
         tone="soft"
       >
         <div className="loading-stack">
@@ -292,7 +306,7 @@ function App() {
     return (
       <ScreenFrame
         eyebrow="Algo saiu do esperado"
-        title="Nao consegui abrir o teste agora"
+        title="Não consegui abrir o teste agora"
         subtitle={errorMessage}
         tone="soft"
       >
@@ -328,11 +342,13 @@ function App() {
 
       {flowState.screen === "quiz" ? (
         <QuizPage
+          answers={flowState.answers}
           area={currentArea}
           current={flowState.currentQuestionIndex + 1}
           errorMessage={errorMessage}
           isSubmitting={isSubmitting}
           options={config.scale}
+          onBack={handleBackQuestion}
           question={currentQuestion}
           total={config.questions.length}
           onAnswer={handleAnswer}

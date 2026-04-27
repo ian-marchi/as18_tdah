@@ -2,8 +2,8 @@ export function AreaScoreList({ areas }) {
   return (
     <section className="result-panel">
       <div className="panel-heading">
-        <p className="panel-kicker">Leitura por area</p>
-        <h2>Onde o esforco apareceu com mais intensidade</h2>
+        <p className="panel-kicker">Leitura por área</p>
+        <h2>Onde o esforço apareceu com mais intensidade</h2>
       </div>
 
       <div className="area-score-list">
@@ -26,4 +26,3 @@ export function AreaScoreList({ areas }) {
     </section>
   );
 }
-

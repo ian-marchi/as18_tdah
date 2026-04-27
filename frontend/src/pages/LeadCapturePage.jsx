@@ -19,11 +19,11 @@ function validateLead(formData) {
   }
 
   if (phoneDigits.length < 10) {
-    errors.phone = "Digite um telefone valido com DDD.";
+    errors.phone = "Digite um telefone válido com DDD.";
   }
 
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email.trim())) {
-    errors.email = "Digite um email valido.";
+    errors.email = "Digite um e-mail válido.";
   }
 
   return errors;
@@ -141,7 +141,7 @@ export function LeadCapturePage({
 
         <p className="privacy-note">{leadScreen.privacyNote}</p>
 
-        <button className="primary-button" disabled={isSubmitting} type="submit">
+        <button className="primary-button lead-submit-button" disabled={isSubmitting} type="submit">
           {isSubmitting ? "Salvando..." : leadScreen.cta}
         </button>
       </form>

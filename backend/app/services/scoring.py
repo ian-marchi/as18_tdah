@@ -19,10 +19,10 @@ def normalize_answers(raw_answers: list[dict] | None) -> dict[str, int]:
         value = entry.get("value")
 
         if not question_id or not isinstance(question_id, str):
-            raise QuizValidationError("Cada resposta precisa ter um questionId valido.")
+            raise QuizValidationError("Cada resposta precisa ter um questionId válido.")
 
         if not isinstance(value, int):
-            raise QuizValidationError("Cada resposta precisa ter um value numerico inteiro.")
+            raise QuizValidationError("Cada resposta precisa ter um value numérico inteiro.")
 
         if question_id in normalized:
             raise QuizValidationError(f"Resposta duplicada para a pergunta '{question_id}'.")
@@ -60,7 +60,7 @@ def calculate_result(config: dict, raw_answers: list[dict] | None) -> dict:
     invalid_values = sorted({value for value in answers.values() if value not in scale_values})
     if invalid_values:
         raise QuizValidationError(
-            f"Foram recebidos valores de resposta invalidos: {', '.join(map(str, invalid_values))}."
+            f"Foram recebidos valores de resposta inválidos: {', '.join(map(str, invalid_values))}."
         )
 
     score_total = sum(answers.values())
@@ -109,4 +109,3 @@ def calculate_result(config: dict, raw_answers: list[dict] | None) -> dict:
         "supportingCopy": config["supportingCopy"],
         "cta": config["cta"],
     }
-

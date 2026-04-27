@@ -1,6 +1,6 @@
 const BAND_LABELS = {
   baixo: "Baixa compatibilidade",
-  sinais: "Sinais de atencao",
+  sinais: "Sinais de atenção",
   alto: "Alta compatibilidade",
 };
 
@@ -21,4 +21,3 @@ export function ResultSection({ result }) {
     </section>
   );
 }
-

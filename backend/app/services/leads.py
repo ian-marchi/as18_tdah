@@ -23,42 +23,42 @@ class LeadValidationError(ValueError):
 
 def normalize_name(value: str | None) -> str:
     if not isinstance(value, str):
-        raise LeadValidationError("Informe um nome valido.")
+        raise LeadValidationError("Informe um nome válido.")
 
     normalized = " ".join(value.strip().split())
     if len(normalized) < 2:
-        raise LeadValidationError("Informe um nome valido.")
+        raise LeadValidationError("Informe um nome válido.")
 
     return normalized
 
 
 def normalize_email(value: str | None) -> str:
     if not isinstance(value, str):
-        raise LeadValidationError("Informe um email valido.")
+        raise LeadValidationError("Informe um e-mail válido.")
 
     normalized = value.strip().lower()
     if not EMAIL_REGEX.match(normalized):
-        raise LeadValidationError("Informe um email valido.")
+        raise LeadValidationError("Informe um e-mail válido.")
 
     return normalized
 
 
 def normalize_phone(value: str | None) -> tuple[str, str]:
     if not isinstance(value, str):
-        raise LeadValidationError("Informe um telefone valido.")
+        raise LeadValidationError("Informe um telefone válido.")
 
     raw_phone = " ".join(value.strip().split())
     digits = "".join(character for character in raw_phone if character.isdigit())
 
     if len(digits) < 10 or len(digits) > 15:
-        raise LeadValidationError("Informe um telefone valido com DDD.")
+        raise LeadValidationError("Informe um telefone válido com DDD.")
 
     return raw_phone, digits
 
 
 def validate_lead_payload(payload: dict) -> dict:
     if not isinstance(payload, dict):
-        raise LeadValidationError("Os dados enviados sao invalidos.")
+        raise LeadValidationError("Os dados enviados são inválidos.")
 
     name = normalize_name(payload.get("name"))
     email = normalize_email(payload.get("email"))
@@ -75,7 +75,7 @@ def validate_lead_payload(payload: dict) -> dict:
 def append_lead_record(record: dict) -> None:
     LEADS_PATH.parent.mkdir(parents=True, exist_ok=True)
     with LEADS_PATH.open("a", encoding="utf-8") as file_handle:
-        file_handle.write(json.dumps(record, ensure_ascii=True) + "\n")
+        file_handle.write(json.dumps(record, ensure_ascii=False) + "\n")
 
 
 def ensure_spreadsheet_header() -> None:

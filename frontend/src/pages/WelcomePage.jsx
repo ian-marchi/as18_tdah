@@ -7,15 +7,15 @@ const TRUST_POINTS = [
 const PREMIUM_FEATURES = [
   {
     title: "Feito para mulheres adultas",
-    text: "Uma experiencia pensada para reconhecer nuances que costumam passar despercebidas por muito tempo.",
+    text: "Uma experiência pensada para reconhecer nuances que costumam passar despercebidas por muito tempo.",
   },
   {
     title: "Linguagem acolhedora",
-    text: "Sem frieza clinica e sem superficialidade. O foco e te ajudar a se reconhecer com mais clareza.",
+    text: "Sem frieza clínica e sem superficialidade. O foco é te ajudar a se reconhecer com mais clareza.",
   },
   {
     title: "Um primeiro passo real",
-    text: "Voce termina com uma leitura objetiva, sensivel e pronta para te direcionar ao proximo movimento.",
+    text: "Você termina com uma leitura objetiva, sensível e pronta para te direcionar ao próximo movimento.",
   },
 ];
 
@@ -30,7 +30,7 @@ export function WelcomePage({ screens, onStart }) {
       <section className="hero-home-card fade-up">
         <div className="hero-home-grid">
           <div className="hero-home-copy">
-            <div className="brand-mark hero-brand-mark">Neurodivergencia Feminina</div>
+            <div className="brand-mark hero-brand-mark">Neurodivergência Feminina</div>
             <p className="hero-home-eyebrow">{screens.welcome.eyebrow}</p>
 
             <h1 className="hero-home-title">{screens.welcome.title}</h1>
@@ -39,7 +39,7 @@ export function WelcomePage({ screens, onStart }) {
             <div className="hero-home-divider" />
 
             <p className="hero-home-support">
-              Um teste breve, sensivel e bem guiado para revelar padroes que muitas
+              Um teste breve, sensível e bem guiado para revelar padrões que muitas
               mulheres carregam por dentro durante anos, sem conseguir nomear.
             </p>
 
@@ -49,7 +49,7 @@ export function WelcomePage({ screens, onStart }) {
               </button>
             </div>
 
-            <div className="hero-home-trustline" aria-label="Diferenciais da experiencia">
+            <div className="hero-home-trustline" aria-label="Diferenciais da experiência">
               {TRUST_POINTS.map((point) => (
                 <span className="hero-home-trustitem" key={point}>
                   {point}
@@ -58,17 +58,17 @@ export function WelcomePage({ screens, onStart }) {
             </div>
           </div>
 
-          <aside className="hero-visual-column" aria-label="Painel visual da experiencia">
+          <aside className="hero-visual-column" aria-label="Painel visual da experiência">
             <div className="hero-visual-frame">
               <img
-                alt="Vaso escultural em composicao editorial suave e acolhedora."
+                alt="Vaso escultural em composição editorial suave e acolhedora."
                 className="hero-visual-image"
                 src="/welcome-still-life.png"
               />
 
               <div className="hero-quote-card">
                 <p className="hero-quote-copy">
-                  Talvez o problema nunca tenha sido falta de esforco. Talvez tenha
+                  Talvez o problema nunca tenha sido falta de esforço. Talvez tenha
                   faltado uma leitura mais gentil do seu jeito de funcionar.
                 </p>
               </div>

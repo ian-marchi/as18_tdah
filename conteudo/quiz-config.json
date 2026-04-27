@@ -2,39 +2,39 @@
   "meta": {
     "title": "Teste de TDAH Feminino",
     "audience": "mulheres adultas",
-    "purpose": "identificacao emocional e conversao"
+    "purpose": "identificação emocional e conversão"
   },
   "screens": {
     "welcome": {
       "eyebrow": "Teste psicoeducativo",
-      "title": "Voce sente que sua mente nunca para...",
-      "subtitle": "mesmo quando voce esta cansada?",
-      "cta": "Comecar"
+      "title": "Você sente que sua mente nunca para...",
+      "subtitle": "mesmo quando você está cansada?",
+      "cta": "Começar"
     },
     "leadCapture": {
       "eyebrow": "Antes de liberar o teste",
       "title": "Me conta como posso te chamar",
-      "body": "Preencha seus dados para comecar agora e receber o proximo passo com clareza.",
+      "body": "Preencha seus dados para começar agora e receber o próximo passo com clareza.",
       "cta": "Liberar meu teste",
       "privacyNote": "Seus dados servem para identificar seu resultado e te direcionar melhor depois do teste.",
       "fields": {
         "name": {
           "label": "Seu nome",
-          "placeholder": "Como voce gostaria de ser chamada?"
+          "placeholder": "Como você gostaria de ser chamada?"
         },
         "phone": {
           "label": "Telefone com DDD",
           "placeholder": "(11) 99999-9999"
         },
         "email": {
-          "label": "Seu melhor email",
-          "placeholder": "voce@exemplo.com"
+          "label": "Seu melhor e-mail",
+          "placeholder": "nome@exemplo.com"
         }
       }
     },
     "intro": {
-      "title": "Antes de comecar",
-      "body": "Responda com sinceridade. Nao existe certo ou errado. E so sobre como voce vive por dentro.",
+      "title": "Antes de começar",
+      "body": "Responda com sinceridade. Não existe certo ou errado. É só sobre como você vive por dentro.",
       "cta": "Continuar"
     }
   },
@@ -48,7 +48,7 @@
       "value": 1
     },
     {
-      "label": "As vezes",
+      "label": "Às vezes",
       "value": 2
     },
     {
@@ -63,23 +63,23 @@
   "areas": [
     {
       "key": "atencao",
-      "label": "Atencao",
-      "description": "desatencao cognitiva, mente dispersa e perda de foco"
+      "label": "Atenção",
+      "description": "desatenção cognitiva, mente dispersa e perda de foco"
     },
     {
       "key": "execucao",
-      "label": "Execucao",
-      "description": "funcoes executivas: iniciar, sustentar e concluir"
+      "label": "Execução",
+      "description": "funções executivas: iniciar, sustentar e concluir"
     },
     {
       "key": "emocional",
       "label": "Emocional",
-      "description": "desregulacao emocional comum em TDAH feminino"
+      "description": "desregulação emocional comum em TDAH feminino"
     },
     {
       "key": "sobrecarga",
       "label": "Sobrecarga",
-      "description": "camuflagem, mascara e custo psicologico"
+      "description": "camuflagem, máscara e custo psicológico"
     }
   ],
   "questions": [
@@ -93,49 +93,49 @@
       "id": "atencao_02",
       "area": "atencao",
       "order": 2,
-      "text": "Eu comeco algo... e no meio ja nem lembro direito o que estava fazendo."
+      "text": "Eu começo algo... e no meio já nem lembro direito o que estava fazendo."
     },
     {
       "id": "atencao_03",
       "area": "atencao",
       "order": 3,
-      "text": "Eu perco coisas simples... e isso me da a sensacao de estar sempre 'desorganizada'."
+      "text": "Eu perco coisas simples... e isso me dá a sensação de estar sempre 'desorganizada'."
     },
     {
       "id": "atencao_04",
       "area": "atencao",
       "order": 4,
-      "text": "Eu ate tento prestar atencao... mas minha mente parece ir pra outro lugar sozinha."
+      "text": "Eu até tento prestar atenção... mas minha mente parece ir para outro lugar sozinha."
     },
     {
       "id": "atencao_05",
       "area": "atencao",
       "order": 5,
-      "text": "As vezes parece que minha mente esta em varios lugares ao mesmo tempo... e em nenhum de verdade."
+      "text": "Às vezes parece que minha mente está em vários lugares ao mesmo tempo... e em nenhum de verdade."
     },
     {
       "id": "execucao_01",
       "area": "execucao",
       "order": 6,
-      "text": "Eu sei exatamente o que preciso fazer... mas nao consigo comecar."
+      "text": "Eu sei exatamente o que preciso fazer... mas não consigo começar."
     },
     {
       "id": "execucao_02",
       "area": "execucao",
       "order": 7,
-      "text": "Eu deixo coisas importantes pra depois... mesmo sabendo que isso vai me prejudicar."
+      "text": "Eu deixo coisas importantes para depois... mesmo sabendo que isso vai me prejudicar."
     },
     {
       "id": "execucao_03",
       "area": "execucao",
       "order": 8,
-      "text": "Eu comeco com vontade... mas nao consigo manter ate o final."
+      "text": "Eu começo com vontade... mas não consigo manter até o final."
     },
     {
       "id": "execucao_04",
       "area": "execucao",
       "order": 9,
-      "text": "Eu so consigo agir quando a pressao fica grande demais."
+      "text": "Eu só consigo agir quando a pressão fica grande demais."
     },
     {
       "id": "execucao_05",
@@ -147,19 +147,19 @@
       "id": "emocional_01",
       "area": "emocional",
       "order": 11,
-      "text": "Eu me sinto sobrecarregada... mesmo quando ninguem percebe isso."
+      "text": "Eu me sinto sobrecarregada... mesmo quando ninguém percebe isso."
     },
     {
       "id": "emocional_02",
       "area": "emocional",
       "order": 12,
-      "text": "As vezes eu fico irritada ou ansiosa... e nem sei exatamente por que."
+      "text": "Às vezes eu fico irritada ou ansiosa... e nem sei exatamente por quê."
     },
     {
       "id": "emocional_03",
       "area": "emocional",
       "order": 13,
-      "text": "Eu me cobro muito... e quase nunca sinto que e suficiente."
+      "text": "Eu me cobro muito... e quase nunca sinto que é suficiente."
     },
     {
       "id": "emocional_04",
@@ -171,7 +171,7 @@
       "id": "emocional_05",
       "area": "emocional",
       "order": 15,
-      "text": "Tem dias que eu me sinto emocionalmente cansada... sem saber explicar direito."
+      "text": "Tem dias em que eu me sinto emocionalmente cansada... sem saber explicar direito."
     },
     {
       "id": "sobrecarga_01",
@@ -183,7 +183,7 @@
       "id": "sobrecarga_02",
       "area": "sobrecarga",
       "order": 17,
-      "text": "Minha mente nao desliga... nem quando eu estou tentando descansar."
+      "text": "Minha mente não desliga... nem quando eu estou tentando descansar."
     },
     {
       "id": "sobrecarga_03",
@@ -195,13 +195,13 @@
       "id": "sobrecarga_04",
       "area": "sobrecarga",
       "order": 19,
-      "text": "Relaxar nao e simples... e como se meu corpo estivesse sempre em alerta."
+      "text": "Relaxar não é simples... é como se meu corpo estivesse sempre em alerta."
     },
     {
       "id": "sobrecarga_05",
       "area": "sobrecarga",
       "order": 20,
-      "text": "Eu continuo funcionando... mas sinto que nao estou realmente bem."
+      "text": "Eu continuo funcionando... mas sinto que não estou realmente bem."
     }
   ],
   "resultBands": [
@@ -209,30 +209,30 @@
       "key": "baixo",
       "min": 0,
       "max": 39,
-      "headline": "Seu resultado indica poucos sinais compativeis com TDAH feminino.",
-      "body": "Mas isso nao invalida o que voce sente. Se voce se identificou com algumas partes do teste, pode existir outro tipo de sobrecarga emocional, ansiedade ou padrao interno que ainda nao foi nomeado. E isso tambem importa."
+      "headline": "Seu resultado indica poucos sinais compatíveis com TDAH feminino.",
+      "body": "Mas isso não invalida o que você sente. Se você se identificou com algumas partes do teste, pode existir outro tipo de sobrecarga emocional, ansiedade ou padrão interno que ainda não foi nomeado. E isso também importa."
     },
     {
       "key": "sinais",
       "min": 40,
       "max": 59,
-      "headline": "Seu resultado mostra sinais que merecem atencao.",
-      "body": "Talvez voce funcione, mas com esforco alto, instabilidade ou sobrecarga emocional. Muitas mulheres passam anos exatamente nesse lugar: dando conta, mas sempre no limite; tentando se organizar, mas sem conseguir sustentar; se sentindo inconsistentes, mesmo se esforcando muito. Isso pode nao ser um quadro classico, mas ja mostra um padrao que merece ser compreendido com mais profundidade."
+      "headline": "Seu resultado mostra sinais que merecem atenção.",
+      "body": "Talvez você funcione, mas com esforço alto, instabilidade ou sobrecarga emocional. Muitas mulheres passam anos exatamente nesse lugar: dando conta, mas sempre no limite; tentando se organizar, mas sem conseguir sustentar; se sentindo inconsistentes, mesmo se esforçando muito. Isso pode não ser um quadro clássico, mas já mostra um padrão que merece ser compreendido com mais profundidade."
     },
     {
       "key": "alto",
       "min": 60,
       "max": 100,
-      "headline": "Seu resultado mostra um padrao altamente compativel com TDAH feminino, especialmente em perfis mascarados ou compensados.",
-      "body": "Isso nao significa que voce tem um diagnostico. Mas indica algo muito importante: voce provavelmente vem funcionando com esforco muito maior do que deveria. Por fora, muitas vezes parece que voce da conta. Mas por dentro, sua mente nao para, comecar tarefas exige energia demais, manter constancia e dificil e o cansaco emocional e constante. E o mais dificil de tudo: voce aprendeu a se cobrar, em vez de se entender."
+      "headline": "Seu resultado mostra um padrão altamente compatível com TDAH feminino, especialmente em perfis mascarados ou compensados.",
+      "body": "Isso não significa que você tem um diagnóstico. Mas indica algo muito importante: você provavelmente vem funcionando com esforço muito maior do que deveria. Por fora, muitas vezes parece que você dá conta. Mas por dentro, sua mente não para, começar tarefas exige energia demais, manter constância é difícil e o cansaço emocional é constante. E o mais difícil de tudo: você aprendeu a se cobrar, em vez de se entender."
     }
   ],
   "supportingCopy": {
-    "coreMessage": "Esse teste nao mede so distracao. Ele revela o esforco invisivel de quem aprendeu a funcionar, mesmo se sentindo sobrecarregada por dentro.",
-    "disclaimer": "Este teste e psicoeducativo e nao substitui avaliacao clinica ou neuropsicologica. Mas pode ser um primeiro passo importante para voce entender como sua mente funciona.",
-    "conversionBridge": "Se voce se reconheceu nesse resultado, o proximo passo nao e tentar se esforcar mais. E entender o seu padrao.",
-    "mapDescription": "O MAPA foi criado exatamente para isso: traduzir o seu funcionamento e te mostrar, com clareza, o que esta por tras disso e como comecar a sair desse ciclo.",
-    "finalImpact": "Talvez nao seja que voce nao consegue. Talvez ninguem nunca tenha te explicado como voce realmente funciona."
+    "coreMessage": "Esse teste não mede só distração. Ele revela o esforço invisível de quem aprendeu a funcionar, mesmo se sentindo sobrecarregada por dentro.",
+    "disclaimer": "Este teste é psicoeducativo e não substitui avaliação clínica ou neuropsicológica. Mas pode ser um primeiro passo importante para você entender como sua mente funciona.",
+    "conversionBridge": "Se você se reconheceu nesse resultado, o próximo passo não é tentar se esforçar mais. É entender o seu padrão.",
+    "mapDescription": "O MAPA foi criado exatamente para isso: traduzir o seu funcionamento e te mostrar, com clareza, o que está por trás disso e como começar a sair desse ciclo.",
+    "finalImpact": "Talvez não seja que você não consegue. Talvez ninguém nunca tenha te explicado como você realmente funciona."
   },
   "cta": {
     "label": "Quero meu MAPA completo",

@@ -12,7 +12,7 @@ export function ScreenFrame({
       <div className="ambient ambient-right" />
 
       <section className="screen-card fade-up">
-        <div className="brand-mark">Neurodivergencia Feminina</div>
+        <div className="brand-mark">Neurodivergência Feminina</div>
 
         <header className="screen-header">
           {eyebrow ? <p className="eyebrow">{eyebrow}</p> : null}
@@ -27,4 +27,3 @@ export function ScreenFrame({
     </main>
   );
 }
-
