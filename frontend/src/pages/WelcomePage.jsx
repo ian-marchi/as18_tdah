@@ -19,6 +19,8 @@ const PREMIUM_FEATURES = [
   },
 ];
 
+const WELCOME_STILL_LIFE_SRC = `${import.meta.env.BASE_URL}welcome-still-life.png`;
+
 
 export function WelcomePage({ screens, onStart }) {
   return (
@@ -63,7 +65,7 @@ export function WelcomePage({ screens, onStart }) {
               <img
                 alt="Vaso escultural em composição editorial suave e acolhedora."
                 className="hero-visual-image"
-                src="/welcome-still-life.png"
+                src={WELCOME_STILL_LIFE_SRC}
               />
 
               <div className="hero-quote-card">

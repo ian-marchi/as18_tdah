@@ -5,6 +5,7 @@ import { defineConfig } from "vite";
 
 
 export default defineConfig({
+  base: process.env.PAGES_BASE_PATH || "/",
   plugins: [react()],
   server: {
     port: 5173,
@@ -19,4 +20,3 @@ export default defineConfig({
     port: 4173,
   },
 });
-

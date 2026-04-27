@@ -2,6 +2,8 @@ import fallbackQuizConfig from "../../../conteudo/quiz-config.json";
 
 import { calculateQuizResult } from "./scoring";
 
+const IS_STATIC_DEPLOY = import.meta.env.VITE_STATIC_DEPLOY === "true";
+
 
 async function parseJsonResponse(response) {
   if (!response.ok) {
@@ -13,6 +15,10 @@ async function parseJsonResponse(response) {
 
 
 export async function fetchQuizConfig() {
+  if (IS_STATIC_DEPLOY) {
+    return fallbackQuizConfig;
+  }
+
   try {
     const response = await fetch("/api/quiz/", {
       headers: {
@@ -28,6 +34,16 @@ export async function fetchQuizConfig() {
 
 
 export async function submitLeadForm(lead) {
+  if (IS_STATIC_DEPLOY) {
+    return {
+      status: "stored-locally",
+      lead: {
+        ...lead,
+        submittedAtUtc: new Date().toISOString(),
+      },
+    };
+  }
+
   try {
     const response = await fetch("/api/leads/", {
       method: "POST",
@@ -52,6 +68,10 @@ export async function submitLeadForm(lead) {
 
 
 export async function submitQuizAnswers(answers, config = fallbackQuizConfig) {
+  if (IS_STATIC_DEPLOY) {
+    return calculateQuizResult(config, answers);
+  }
+
   try {
     const response = await fetch("/api/quiz/result", {
       method: "POST",

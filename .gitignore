@@ -5,5 +5,7 @@ __pycache__/
 venv/
 node_modules/
 dist/
+.packages/
+.docx_review*/
 .DS_Store
 dados/
