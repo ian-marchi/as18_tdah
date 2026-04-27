@@ -1,0 +1,241 @@
+{
+  "meta": {
+    "title": "Teste de TDAH Feminino",
+    "audience": "mulheres adultas",
+    "purpose": "identificacao emocional e conversao"
+  },
+  "screens": {
+    "welcome": {
+      "eyebrow": "Teste psicoeducativo",
+      "title": "Voce sente que sua mente nunca para...",
+      "subtitle": "mesmo quando voce esta cansada?",
+      "cta": "Comecar"
+    },
+    "leadCapture": {
+      "eyebrow": "Antes de liberar o teste",
+      "title": "Me conta como posso te chamar",
+      "body": "Preencha seus dados para comecar agora e receber o proximo passo com clareza.",
+      "cta": "Liberar meu teste",
+      "privacyNote": "Seus dados servem para identificar seu resultado e te direcionar melhor depois do teste.",
+      "fields": {
+        "name": {
+          "label": "Seu nome",
+          "placeholder": "Como voce gostaria de ser chamada?"
+        },
+        "phone": {
+          "label": "Telefone com DDD",
+          "placeholder": "(11) 99999-9999"
+        },
+        "email": {
+          "label": "Seu melhor email",
+          "placeholder": "voce@exemplo.com"
+        }
+      }
+    },
+    "intro": {
+      "title": "Antes de comecar",
+      "body": "Responda com sinceridade. Nao existe certo ou errado. E so sobre como voce vive por dentro.",
+      "cta": "Continuar"
+    }
+  },
+  "scale": [
+    {
+      "label": "Nunca",
+      "value": 0
+    },
+    {
+      "label": "Raramente",
+      "value": 1
+    },
+    {
+      "label": "As vezes",
+      "value": 2
+    },
+    {
+      "label": "Frequentemente",
+      "value": 3
+    },
+    {
+      "label": "Quase sempre",
+      "value": 4
+    }
+  ],
+  "areas": [
+    {
+      "key": "atencao",
+      "label": "Atencao",
+      "description": "desatencao cognitiva, mente dispersa e perda de foco"
+    },
+    {
+      "key": "execucao",
+      "label": "Execucao",
+      "description": "funcoes executivas: iniciar, sustentar e concluir"
+    },
+    {
+      "key": "emocional",
+      "label": "Emocional",
+      "description": "desregulacao emocional comum em TDAH feminino"
+    },
+    {
+      "key": "sobrecarga",
+      "label": "Sobrecarga",
+      "description": "camuflagem, mascara e custo psicologico"
+    }
+  ],
+  "questions": [
+    {
+      "id": "atencao_01",
+      "area": "atencao",
+      "order": 1,
+      "text": "Eu me distraio com facilidade... mesmo quando eu realmente queria conseguir focar."
+    },
+    {
+      "id": "atencao_02",
+      "area": "atencao",
+      "order": 2,
+      "text": "Eu comeco algo... e no meio ja nem lembro direito o que estava fazendo."
+    },
+    {
+      "id": "atencao_03",
+      "area": "atencao",
+      "order": 3,
+      "text": "Eu perco coisas simples... e isso me da a sensacao de estar sempre 'desorganizada'."
+    },
+    {
+      "id": "atencao_04",
+      "area": "atencao",
+      "order": 4,
+      "text": "Eu ate tento prestar atencao... mas minha mente parece ir pra outro lugar sozinha."
+    },
+    {
+      "id": "atencao_05",
+      "area": "atencao",
+      "order": 5,
+      "text": "As vezes parece que minha mente esta em varios lugares ao mesmo tempo... e em nenhum de verdade."
+    },
+    {
+      "id": "execucao_01",
+      "area": "execucao",
+      "order": 6,
+      "text": "Eu sei exatamente o que preciso fazer... mas nao consigo comecar."
+    },
+    {
+      "id": "execucao_02",
+      "area": "execucao",
+      "order": 7,
+      "text": "Eu deixo coisas importantes pra depois... mesmo sabendo que isso vai me prejudicar."
+    },
+    {
+      "id": "execucao_03",
+      "area": "execucao",
+      "order": 8,
+      "text": "Eu comeco com vontade... mas nao consigo manter ate o final."
+    },
+    {
+      "id": "execucao_04",
+      "area": "execucao",
+      "order": 9,
+      "text": "Eu so consigo agir quando a pressao fica grande demais."
+    },
+    {
+      "id": "execucao_05",
+      "area": "execucao",
+      "order": 10,
+      "text": "Eu tento me organizar... mas parece que nada funciona por muito tempo."
+    },
+    {
+      "id": "emocional_01",
+      "area": "emocional",
+      "order": 11,
+      "text": "Eu me sinto sobrecarregada... mesmo quando ninguem percebe isso."
+    },
+    {
+      "id": "emocional_02",
+      "area": "emocional",
+      "order": 12,
+      "text": "As vezes eu fico irritada ou ansiosa... e nem sei exatamente por que."
+    },
+    {
+      "id": "emocional_03",
+      "area": "emocional",
+      "order": 13,
+      "text": "Eu me cobro muito... e quase nunca sinto que e suficiente."
+    },
+    {
+      "id": "emocional_04",
+      "area": "emocional",
+      "order": 14,
+      "text": "Eu sinto as coisas de forma intensa... mesmo quando parecem pequenas."
+    },
+    {
+      "id": "emocional_05",
+      "area": "emocional",
+      "order": 15,
+      "text": "Tem dias que eu me sinto emocionalmente cansada... sem saber explicar direito."
+    },
+    {
+      "id": "sobrecarga_01",
+      "area": "sobrecarga",
+      "order": 16,
+      "text": "Por fora parece que eu dou conta... mas por dentro eu estou exausta."
+    },
+    {
+      "id": "sobrecarga_02",
+      "area": "sobrecarga",
+      "order": 17,
+      "text": "Minha mente nao desliga... nem quando eu estou tentando descansar."
+    },
+    {
+      "id": "sobrecarga_03",
+      "area": "sobrecarga",
+      "order": 18,
+      "text": "Eu sinto que estou sempre no limite... como se qualquer coisa fosse demais."
+    },
+    {
+      "id": "sobrecarga_04",
+      "area": "sobrecarga",
+      "order": 19,
+      "text": "Relaxar nao e simples... e como se meu corpo estivesse sempre em alerta."
+    },
+    {
+      "id": "sobrecarga_05",
+      "area": "sobrecarga",
+      "order": 20,
+      "text": "Eu continuo funcionando... mas sinto que nao estou realmente bem."
+    }
+  ],
+  "resultBands": [
+    {
+      "key": "baixo",
+      "min": 0,
+      "max": 39,
+      "headline": "Seu resultado indica poucos sinais compativeis com TDAH feminino.",
+      "body": "Mas isso nao invalida o que voce sente. Se voce se identificou com algumas partes do teste, pode existir outro tipo de sobrecarga emocional, ansiedade ou padrao interno que ainda nao foi nomeado. E isso tambem importa."
+    },
+    {
+      "key": "sinais",
+      "min": 40,
+      "max": 59,
+      "headline": "Seu resultado mostra sinais que merecem atencao.",
+      "body": "Talvez voce funcione, mas com esforco alto, instabilidade ou sobrecarga emocional. Muitas mulheres passam anos exatamente nesse lugar: dando conta, mas sempre no limite; tentando se organizar, mas sem conseguir sustentar; se sentindo inconsistentes, mesmo se esforcando muito. Isso pode nao ser um quadro classico, mas ja mostra um padrao que merece ser compreendido com mais profundidade."
+    },
+    {
+      "key": "alto",
+      "min": 60,
+      "max": 100,
+      "headline": "Seu resultado mostra um padrao altamente compativel com TDAH feminino, especialmente em perfis mascarados ou compensados.",
+      "body": "Isso nao significa que voce tem um diagnostico. Mas indica algo muito importante: voce provavelmente vem funcionando com esforco muito maior do que deveria. Por fora, muitas vezes parece que voce da conta. Mas por dentro, sua mente nao para, comecar tarefas exige energia demais, manter constancia e dificil e o cansaco emocional e constante. E o mais dificil de tudo: voce aprendeu a se cobrar, em vez de se entender."
+    }
+  ],
+  "supportingCopy": {
+    "coreMessage": "Esse teste nao mede so distracao. Ele revela o esforco invisivel de quem aprendeu a funcionar, mesmo se sentindo sobrecarregada por dentro.",
+    "disclaimer": "Este teste e psicoeducativo e nao substitui avaliacao clinica ou neuropsicologica. Mas pode ser um primeiro passo importante para voce entender como sua mente funciona.",
+    "conversionBridge": "Se voce se reconheceu nesse resultado, o proximo passo nao e tentar se esforcar mais. E entender o seu padrao.",
+    "mapDescription": "O MAPA foi criado exatamente para isso: traduzir o seu funcionamento e te mostrar, com clareza, o que esta por tras disso e como comecar a sair desse ciclo.",
+    "finalImpact": "Talvez nao seja que voce nao consegue. Talvez ninguem nunca tenha te explicado como voce realmente funciona."
+  },
+  "cta": {
+    "label": "Quero meu MAPA completo",
+    "href": "https://seu-link-do-mapa-aqui.com"
+  }
+}

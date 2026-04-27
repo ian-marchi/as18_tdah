@@ -1,0 +1,30 @@
+export function ScreenFrame({
+  eyebrow,
+  title,
+  subtitle,
+  children,
+  footer = null,
+  tone = "default",
+}) {
+  return (
+    <main className={`app-shell tone-${tone}`}>
+      <div className="ambient ambient-left" />
+      <div className="ambient ambient-right" />
+
+      <section className="screen-card fade-up">
+        <div className="brand-mark">Neurodivergencia Feminina</div>
+
+        <header className="screen-header">
+          {eyebrow ? <p className="eyebrow">{eyebrow}</p> : null}
+          <h1 className="display-title">{title}</h1>
+          {subtitle ? <p className="display-subtitle">{subtitle}</p> : null}
+        </header>
+
+        <div className="screen-body">{children}</div>
+
+        {footer ? <footer className="screen-footer">{footer}</footer> : null}
+      </section>
+    </main>
+  );
+}
+

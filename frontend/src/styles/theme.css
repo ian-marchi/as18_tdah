@@ -1,0 +1,24 @@
+:root {
+  color-scheme: light;
+  --color-shell: #f4ece4;
+  --color-paper: rgba(255, 249, 243, 0.86);
+  --color-paper-strong: #fffaf5;
+  --color-ink: #38251d;
+  --color-muted: #7c675d;
+  --color-line: rgba(88, 59, 47, 0.12);
+  --color-accent: #b66b58;
+  --color-accent-deep: #8f4a3d;
+  --color-accent-soft: rgba(182, 107, 88, 0.14);
+  --color-success: #6b825f;
+  --color-shadow: rgba(79, 49, 38, 0.14);
+  --color-glow: rgba(224, 183, 158, 0.48);
+  --radius-xs: 14px;
+  --radius-sm: 20px;
+  --radius-md: 28px;
+  --radius-lg: 40px;
+  --shadow-card: 0 26px 80px var(--color-shadow);
+  --shadow-soft: 0 18px 42px rgba(88, 59, 47, 0.08);
+  --font-heading: "Cormorant Garamond", Georgia, serif;
+  --font-body: "Manrope", "Avenir Next", "Segoe UI", sans-serif;
+}
+
