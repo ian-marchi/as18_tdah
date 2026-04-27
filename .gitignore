@@ -6,6 +6,9 @@ venv/
 node_modules/
 dist/
 .packages/
+.pydeps/
+.env
+.env.*
 .docx_review*/
 .DS_Store
 dados/
