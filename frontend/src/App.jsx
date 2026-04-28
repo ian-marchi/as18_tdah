@@ -27,8 +27,9 @@ function normalizeLead(lead) {
   const name = typeof lead.name === "string" ? lead.name.trim() : "";
   const phone = typeof lead.phone === "string" ? lead.phone.trim() : "";
   const email = typeof lead.email === "string" ? lead.email.trim().toLowerCase() : "";
+  const ageRange = typeof lead.ageRange === "string" ? lead.ageRange.trim() : "";
 
-  if (!name || !phone || !email) {
+  if (!name || !phone || !email || !ageRange) {
     return null;
   }
 
@@ -37,6 +38,7 @@ function normalizeLead(lead) {
     name,
     phone,
     email,
+    ageRange,
   };
 }
 

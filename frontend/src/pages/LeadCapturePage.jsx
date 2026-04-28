@@ -7,6 +7,7 @@ const EMPTY_FORM = {
   name: "",
   phone: "",
   email: "",
+  ageRange: "",
 };
 
 
@@ -24,6 +25,10 @@ function validateLead(formData) {
 
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email.trim())) {
     errors.email = "Digite um e-mail válido.";
+  }
+
+  if (!formData.ageRange.trim()) {
+    errors.ageRange = "Selecione sua faixa etária.";
   }
 
   return errors;
@@ -45,8 +50,21 @@ export function LeadCapturePage({
       name: initialLead?.name || "",
       phone: initialLead?.phone || "",
       email: initialLead?.email || "",
+      ageRange: initialLead?.ageRange || "",
     });
   }, [initialLead]);
+
+  function clearFieldError(fieldName) {
+    setFieldErrors((currentErrors) => {
+      if (!currentErrors[fieldName]) {
+        return currentErrors;
+      }
+
+      const nextErrors = { ...currentErrors };
+      delete nextErrors[fieldName];
+      return nextErrors;
+    });
+  }
 
   function handleFieldChange(event) {
     const { name, value } = event.target;
@@ -56,15 +74,7 @@ export function LeadCapturePage({
       [name]: value,
     }));
 
-    setFieldErrors((currentErrors) => {
-      if (!currentErrors[name]) {
-        return currentErrors;
-      }
-
-      const nextErrors = { ...currentErrors };
-      delete nextErrors[name];
-      return nextErrors;
-    });
+    clearFieldError(name);
   }
 
   function handleSubmit(event) {
@@ -81,10 +91,13 @@ export function LeadCapturePage({
       name: formData.name.trim(),
       phone: formData.phone.trim(),
       email: formData.email.trim().toLowerCase(),
+      ageRange: formData.ageRange.trim(),
     });
   }
 
   const leadScreen = screens.leadCapture;
+  const ageRangeField = leadScreen.fields.ageRange;
+  const ageRangeOptions = leadScreen.ageRangeOptions || [];
 
   return (
     <ScreenFrame
@@ -137,6 +150,32 @@ export function LeadCapturePage({
             value={formData.email}
           />
           {fieldErrors.email ? <small className="field-error">{fieldErrors.email}</small> : null}
+        </label>
+
+        <label className="field-stack" htmlFor="ageRange">
+          <span>{ageRangeField.label}</span>
+          <div className="select-field-wrap">
+            <select
+              className={`select-input ${fieldErrors.ageRange ? "text-input-error" : ""}`}
+              id="ageRange"
+              name="ageRange"
+              onChange={handleFieldChange}
+              value={formData.ageRange}
+            >
+              <option value="">Selecione sua faixa etária</option>
+              {ageRangeOptions.map((option) => (
+                <option key={option.value} value={option.value}>
+                  {option.label}
+                </option>
+              ))}
+            </select>
+            <span aria-hidden="true" className="select-field-chevron">
+              ▾
+            </span>
+          </div>
+          {fieldErrors.ageRange ? (
+            <small className="field-error">{fieldErrors.ageRange}</small>
+          ) : null}
         </label>
 
         <p className="privacy-note">{leadScreen.privacyNote}</p>

@@ -4,14 +4,17 @@ export function ScreenFrame({
   subtitle,
   children,
   footer = null,
+  cardClassName = "",
   tone = "default",
 }) {
+  const sectionClassName = ["screen-card", "fade-up", cardClassName].filter(Boolean).join(" ");
+
   return (
     <main className={`app-shell tone-${tone}`}>
       <div className="ambient ambient-left" />
       <div className="ambient ambient-right" />
 
-      <section className="screen-card fade-up">
+      <section className={sectionClassName}>
         <div className="brand-mark">Neurodivergência Feminina</div>
 
         <header className="screen-header">

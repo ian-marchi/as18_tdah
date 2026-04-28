@@ -16,11 +16,13 @@ class LeadServiceTests(unittest.TestCase):
                 "name": "  Maria  Silva ",
                 "email": "  MARIA@example.com ",
                 "phone": " (11) 99999-1234 ",
+                "ageRange": "25 a 34 anos",
             }
         )
 
         self.assertEqual(lead["name"], "Maria Silva")
         self.assertEqual(lead["email"], "maria@example.com")
+        self.assertEqual(lead["ageRange"], "25 a 34 anos")
         self.assertEqual(lead["phoneDigits"], "11999991234")
 
     def test_validate_lead_payload_rejects_invalid_email(self):
@@ -30,6 +32,7 @@ class LeadServiceTests(unittest.TestCase):
                     "name": "Maria Silva",
                     "email": "maria.example.com",
                     "phone": "(11) 99999-1234",
+                    "ageRange": "25 a 34 anos",
                 }
             )
 
@@ -51,6 +54,7 @@ class LeadServiceTests(unittest.TestCase):
                         "name": "Maria Silva",
                         "email": "maria@example.com",
                         "phone": "(11) 99999-1234",
+                        "ageRange": "25 a 34 anos",
                     }
                 )
 
@@ -58,13 +62,18 @@ class LeadServiceTests(unittest.TestCase):
             written = temp_path.read_text(encoding="utf-8")
             self.assertIn('"name": "Maria Silva"', written)
             self.assertIn('"email": "maria@example.com"', written)
+            self.assertIn('"ageRange": "25 a 34 anos"', written)
             self.assertIn(lead["submittedAtUtc"], written)
 
             self.assertTrue(temp_csv_path.exists())
             written_csv = temp_csv_path.read_text(encoding="utf-8")
-            self.assertIn("name,email,phone,phoneDigits,source,submittedAtUtc", written_csv)
+            self.assertIn(
+                "name,email,phone,ageRange,phoneDigits,source,submittedAtUtc",
+                written_csv,
+            )
             self.assertIn("Maria Silva", written_csv)
             self.assertIn("maria@example.com", written_csv)
+            self.assertIn("25 a 34 anos", written_csv)
         finally:
             if temp_path.exists():
                 temp_path.unlink()

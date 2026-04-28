@@ -29,8 +29,39 @@
         "email": {
           "label": "Seu melhor e-mail",
           "placeholder": "nome@exemplo.com"
+        },
+        "ageRange": {
+          "label": "Sua faixa etária",
+          "helper": "Isso nos ajuda a contextualizar melhor o seu momento de vida."
         }
-      }
+      },
+      "ageRangeOptions": [
+        {
+          "value": "18 a 24 anos",
+          "label": "18 a 24 anos",
+          "caption": "Início da vida adulta"
+        },
+        {
+          "value": "25 a 34 anos",
+          "label": "25 a 34 anos",
+          "caption": "Rotina em consolidação"
+        },
+        {
+          "value": "35 a 44 anos",
+          "label": "35 a 44 anos",
+          "caption": "Fase de múltiplas demandas"
+        },
+        {
+          "value": "45 a 54 anos",
+          "label": "45 a 54 anos",
+          "caption": "Novos ajustes e sobrecargas"
+        },
+        {
+          "value": "55 anos ou mais",
+          "label": "55 anos ou mais",
+          "caption": "Uma leitura mais madura da própria história"
+        }
+      ]
     },
     "intro": {
       "title": "Antes de começar",

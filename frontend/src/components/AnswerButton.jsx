@@ -8,7 +8,16 @@ export function AnswerButton({ disabled, isSelected = false, label, value, onCli
       onClick={() => onClick(value)}
       type="button"
     >
+      <span aria-hidden="true" className="answer-leading-orbs">
+        <span className="answer-orb answer-orb-solid" />
+        <span className="answer-orb answer-orb-outline" />
+      </span>
+
       <span className="answer-title">{label}</span>
+
+      <span aria-hidden="true" className="answer-arrow">
+        {"\u2192"}
+      </span>
     </button>
   );
 }
