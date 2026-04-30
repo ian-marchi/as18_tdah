@@ -11,7 +11,10 @@ export function AreaScoreList({ areas }) {
           <article className="area-row" key={area.key}>
             <div className="area-row-header">
               <div>
-                <h3>{area.label}</h3>
+                <div className="area-heading-row">
+                  <h3>{area.label}</h3>
+                  <span className="area-band-chip">{area.bandLabel}</span>
+                </div>
                 <p>{area.description}</p>
               </div>
               <strong>{area.percentage}%</strong>
@@ -20,6 +23,8 @@ export function AreaScoreList({ areas }) {
             <div className="area-meter">
               <div className="area-meter-fill" style={{ width: `${area.percentage}%` }} />
             </div>
+
+            {area.insight ? <p className="area-insight">{area.insight}</p> : null}
           </article>
         ))}
       </div>

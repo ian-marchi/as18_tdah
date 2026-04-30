@@ -21,6 +21,8 @@ class ScoringServiceTests(unittest.TestCase):
         self.assertEqual(result["percentageTotal"], 100)
         self.assertEqual(result["resultBand"]["key"], "alto")
         self.assertTrue(all(area["percentage"] == 100 for area in result["areas"]))
+        self.assertTrue(all(area["bandKey"] == "alta" for area in result["areas"]))
+        self.assertTrue(all(area["insight"] for area in result["areas"]))
 
     def test_calculate_result_for_middle_band(self):
         result = calculate_result(self.config, self.build_answers(2))
@@ -28,6 +30,7 @@ class ScoringServiceTests(unittest.TestCase):
         self.assertEqual(result["scoreTotal"], 40)
         self.assertEqual(result["percentageTotal"], 50)
         self.assertEqual(result["resultBand"]["key"], "sinais")
+        self.assertTrue(all(area["bandKey"] == "moderada" for area in result["areas"]))
 
     def test_raises_for_incomplete_answers(self):
         with self.assertRaises(QuizValidationError):
@@ -36,4 +39,3 @@ class ScoringServiceTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
-

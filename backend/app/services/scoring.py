@@ -32,12 +32,24 @@ def normalize_answers(raw_answers: list[dict] | None) -> dict[str, int]:
     return normalized
 
 
+def get_active_band(bands: list[dict], percentage: int) -> dict:
+    return next(
+        (
+            band
+            for band in bands
+            if band["min"] <= percentage <= band["max"]
+        ),
+        bands[-1],
+    )
+
+
 def calculate_result(config: dict, raw_answers: list[dict] | None) -> dict:
     answers = normalize_answers(raw_answers)
 
     questions = config["questions"]
     areas = config["areas"]
     result_bands = config["resultBands"]
+    area_result_bands = config.get("areaResultBands", {})
     scale_values = {item["value"] for item in config["scale"]}
     max_scale_value = max(scale_values)
 
@@ -77,6 +89,8 @@ def calculate_result(config: dict, raw_answers: list[dict] | None) -> dict:
         scoped_score = sum(answers[question["id"]] for question in scoped_questions)
         scoped_max = len(scoped_questions) * max_scale_value
         scoped_percentage = round((scoped_score / scoped_max) * 100) if scoped_max else 0
+        scoped_bands = area_result_bands.get(area["key"], result_bands)
+        active_area_band = get_active_band(scoped_bands, scoped_percentage)
 
         area_results.append(
             {
@@ -86,17 +100,13 @@ def calculate_result(config: dict, raw_answers: list[dict] | None) -> dict:
                 "score": scoped_score,
                 "scoreMax": scoped_max,
                 "percentage": scoped_percentage,
+                "bandKey": active_area_band["key"],
+                "bandLabel": active_area_band.get("label", active_area_band["key"].title()),
+                "insight": active_area_band.get("body", ""),
             }
         )
 
-    active_band = next(
-        (
-            band
-            for band in result_bands
-            if band["min"] <= percentage_total <= band["max"]
-        ),
-        result_bands[-1],
-    )
+    active_band = get_active_band(result_bands, percentage_total)
 
     return {
         "scoreTotal": score_total,

@@ -828,6 +828,13 @@ a {
   gap: 12px;
 }
 
+.area-heading-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
 .area-row-header {
   display: flex;
   justify-content: space-between;
@@ -837,6 +844,25 @@ a {
 
 .area-row-header strong {
   font-size: 1.2rem;
+}
+
+.area-band-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(233, 205, 186, 0.58);
+  color: var(--color-accent-deep);
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.area-insight {
+  color: rgba(68, 46, 36, 0.92);
+  font-size: 0.98rem;
+  line-height: 1.8;
 }
 
 .narrative-panel {

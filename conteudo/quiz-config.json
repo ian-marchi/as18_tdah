@@ -113,6 +113,100 @@
       "description": "camuflagem, máscara e custo psicológico"
     }
   ],
+  "areaResultBands": {
+    "atencao": [
+      {
+        "key": "baixa",
+        "label": "Baixa",
+        "min": 0,
+        "max": 39,
+        "body": "Sua atenção funciona melhor do que a média... mas ainda pode oscilar em momentos de cansaço, pressão ou excesso de estímulos."
+      },
+      {
+        "key": "moderada",
+        "label": "Moderada",
+        "min": 40,
+        "max": 69,
+        "body": "Você até consegue focar em algumas situações... mas se distrai com facilidade, e tarefas simples acabam demorando muito mais do que deveriam."
+      },
+      {
+        "key": "alta",
+        "label": "Alta",
+        "min": 70,
+        "max": 100,
+        "body": "Você começa coisas com intenção... mas sua mente escapa no meio do caminho, e no final do dia fica aquela sensação de que você não conseguiu estar presente de verdade em nada."
+      }
+    ],
+    "execucao": [
+      {
+        "key": "baixa",
+        "label": "Baixa",
+        "min": 0,
+        "max": 39,
+        "body": "Sua capacidade de execução está mais preservada... mas pode cair quando há sobrecarga, pressão ou muitas demandas ao mesmo tempo."
+      },
+      {
+        "key": "moderada",
+        "label": "Moderada",
+        "min": 40,
+        "max": 69,
+        "body": "Você consegue começar tarefas... mas manter constância e finalizar ainda exige um esforço muito maior do que deveria."
+      },
+      {
+        "key": "alta",
+        "label": "Alta",
+        "min": 70,
+        "max": 100,
+        "body": "Você sabe exatamente o que precisa fazer... mas travar para começar, parar no meio ou não conseguir concluir virou um ciclo que te faz duvidar da sua própria capacidade."
+      }
+    ],
+    "emocional": [
+      {
+        "key": "baixa",
+        "label": "Baixa",
+        "min": 0,
+        "max": 39,
+        "body": "Seu equilíbrio emocional é mais estável... mas ainda pode ser impactado em períodos de estresse ou sobrecarga acumulada."
+      },
+      {
+        "key": "moderada",
+        "label": "Moderada",
+        "min": 40,
+        "max": 69,
+        "body": "Você sente as coisas com profundidade... mas às vezes isso vira um peso interno difícil de organizar e equilibrar."
+      },
+      {
+        "key": "alta",
+        "label": "Alta",
+        "min": 70,
+        "max": 100,
+        "body": "Pequenas situações te afetam de forma intensa... e você oscila entre se cobrar demais e se sentir emocionalmente esgotada, como se tudo fosse “demais” por dentro."
+      }
+    ],
+    "sobrecarga": [
+      {
+        "key": "baixa",
+        "label": "Baixa",
+        "min": 0,
+        "max": 39,
+        "body": "Você consegue ser mais autêntica em muitos momentos... mas ainda pode sentir necessidade de se ajustar demais em alguns contextos."
+      },
+      {
+        "key": "moderada",
+        "label": "Moderada",
+        "min": 40,
+        "max": 69,
+        "body": "Você frequentemente se adapta ao ambiente e às expectativas... mas isso, aos poucos, vai te deixando cansada e desconectada de si mesma."
+      },
+      {
+        "key": "alta",
+        "label": "Alta",
+        "min": 70,
+        "max": 100,
+        "body": "Você vive tentando dar conta de tudo, parecer bem e funcionar como esperam... mas por dentro está cansada de sustentar uma versão que custa caro demais."
+      }
+    ]
+  },
   "questions": [
     {
       "id": "atencao_01",
@@ -130,7 +224,7 @@
       "id": "atencao_03",
       "area": "atencao",
       "order": 3,
-      "text": "Eu perco coisas simples... e isso me dá a sensação de estar sempre 'desorganizada'."
+      "text": "Eu perco coisas simples... e isso me dá a sensação de estar sempre “desorganizada”."
     },
     {
       "id": "atencao_04",
@@ -261,6 +355,7 @@
   "supportingCopy": {
     "coreMessage": "Esse teste não mede só distração. Ele revela o esforço invisível de quem aprendeu a funcionar, mesmo se sentindo sobrecarregada por dentro.",
     "disclaimer": "Este teste é psicoeducativo e não substitui avaliação clínica ou neuropsicológica. Mas pode ser um primeiro passo importante para você entender como sua mente funciona.",
+    "closingReflection": "Isso não define quem você é... mas pode ajudar a entender por que, muitas vezes, viver parece exigir mais esforço de você do que dos outros.",
     "conversionBridge": "Se você se reconheceu nesse resultado, o próximo passo não é tentar se esforçar mais. É entender o seu padrão.",
     "mapDescription": "O MAPA foi criado exatamente para isso: traduzir o seu funcionamento e te mostrar, com clareza, o que está por trás disso e como começar a sair desse ciclo.",
     "finalImpact": "Talvez não seja que você não consegue. Talvez ninguém nunca tenha te explicado como você realmente funciona."

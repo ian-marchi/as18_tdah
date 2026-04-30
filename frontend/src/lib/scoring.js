@@ -5,11 +5,10 @@ function normalizeAnswers(rawAnswers) {
 }
 
 
-function getActiveBand(resultBands, percentageTotal) {
+function getActiveBand(bands, percentage) {
   return (
-    resultBands.find(
-      (band) => percentageTotal >= band.min && percentageTotal <= band.max,
-    ) || resultBands[resultBands.length - 1]
+    bands.find((band) => percentage >= band.min && percentage <= band.max) ||
+    bands[bands.length - 1]
   );
 }
 
@@ -31,6 +30,9 @@ export function calculateQuizResult(config, rawAnswers) {
       0,
     );
     const scopedMax = scopedQuestions.length * maxScaleValue;
+    const percentage = Math.round((score / scopedMax) * 100);
+    const scopedBands = config.areaResultBands?.[area.key] || config.resultBands;
+    const activeAreaBand = getActiveBand(scopedBands, percentage);
 
     return {
       key: area.key,
@@ -38,7 +40,10 @@ export function calculateQuizResult(config, rawAnswers) {
       description: area.description,
       score,
       scoreMax: scopedMax,
-      percentage: Math.round((score / scopedMax) * 100),
+      percentage,
+      bandKey: activeAreaBand.key,
+      bandLabel: activeAreaBand.label || activeAreaBand.key,
+      insight: activeAreaBand.body || "",
     };
   });
 
@@ -54,4 +59,3 @@ export function calculateQuizResult(config, rawAnswers) {
     supportingCopy: config.supportingCopy,
   };
 }
-

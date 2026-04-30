@@ -17,6 +17,17 @@ export function ResultPage({ result, onRestart }) {
         <AreaScoreList areas={result.areas} />
       </div>
 
+      {result.supportingCopy.closingReflection ? (
+        <section className="result-panel narrative-panel">
+          <div className="panel-heading">
+            <p className="panel-kicker">Fechamento</p>
+            <h2>Talvez o esforço faça mais sentido agora</h2>
+          </div>
+
+          <p>{result.supportingCopy.closingReflection}</p>
+        </section>
+      ) : null}
+
       <section className="result-panel narrative-panel">
         <div className="panel-heading">
           <p className="panel-kicker">Importante</p>
