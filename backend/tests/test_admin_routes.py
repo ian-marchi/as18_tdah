@@ -106,6 +106,20 @@ class AdminRoutesTests(unittest.TestCase):
         self.assertEqual(detail_payload["name"], "Maria Silva")
         self.assertFalse(detail_payload["isLegacy"])
 
+    def test_admin_login_accepts_whitespace_and_quoted_environment_values(self):
+        self.app.config["ADMIN_EMAIL"] = ' "admin@admin.com" '
+        self.app.config["ADMIN_PASSWORD"] = " 'admin#22018@' "
+
+        login_response = self.client.post(
+            "/api/admin/session",
+            json={
+                "email": " admin@admin.com ",
+                "password": " admin#22018@ ",
+            },
+        )
+
+        self.assertEqual(login_response.status_code, 200)
+
 
 if __name__ == "__main__":
     unittest.main()

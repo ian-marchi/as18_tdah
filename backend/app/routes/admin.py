@@ -24,13 +24,24 @@ def require_admin_session(view_func):
     return wrapper
 
 
+def normalize_admin_email(value) -> str:
+    return str(value or "").strip().strip("\"'").lower()
+
+
+def normalize_admin_password(value) -> str:
+    normalized = str(value or "").strip()
+    if len(normalized) >= 2 and normalized[0] == normalized[-1] and normalized[0] in {"'", '"'}:
+        return normalized[1:-1]
+    return normalized
+
+
 @admin_bp.post("/session")
 def create_admin_session():
     payload = request.get_json(silent=True) or {}
-    email = str(payload.get("email", "")).strip().lower()
-    password = str(payload.get("password", ""))
-    expected_email = current_app.config["ADMIN_EMAIL"].strip().lower()
-    expected_password = current_app.config["ADMIN_PASSWORD"]
+    email = normalize_admin_email(payload.get("email", ""))
+    password = normalize_admin_password(payload.get("password", ""))
+    expected_email = normalize_admin_email(current_app.config["ADMIN_EMAIL"])
+    expected_password = normalize_admin_password(current_app.config["ADMIN_PASSWORD"])
 
     if not (
         compare_digest(email, expected_email)
