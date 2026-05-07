@@ -24,8 +24,7 @@ def create_app():
 
     app = Flask(
         __name__,
-        static_folder=str(FRONTEND_DIST_DIR),
-        static_url_path="/",
+        static_folder=None,
     )
     app.config["JSON_SORT_KEYS"] = False
     app.config["SECRET_KEY"] = FLASK_SECRET_KEY
