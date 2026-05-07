@@ -19,7 +19,7 @@ export function QuizPage({
     <ScreenFrame
       cardClassName="quiz-screen"
       eyebrow={`Pergunta ${current} de ${total}`}
-      subtitle={area ? area.description : ""}
+      subtitle={question.supportText || area?.description || ""}
       title={question.text}
       tone="soft"
     >

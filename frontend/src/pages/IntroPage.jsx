@@ -4,7 +4,7 @@ import { ScreenFrame } from "../components/ScreenFrame";
 const INTRO_POINTS = [
   "Responda pensando em como isso aparece no seu dia a dia.",
   "Não existe certo ou errado. O foco é identificação, não perfeição.",
-  "A leitura final não substitui avaliação clínica, mas pode te dar direção.",
+  "Essa leitura é psicoeducativa e não substitui avaliação clínica, neuropsicológica ou psiquiátrica.",
 ];
 
 

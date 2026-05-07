@@ -15,7 +15,7 @@ const PREMIUM_FEATURES = [
   },
   {
     title: "Um primeiro passo real",
-    text: "Você termina com uma leitura objetiva, sensível e pronta para te direcionar ao próximo movimento.",
+    text: "Você termina com uma primeira leitura sensível, objetiva e pronta para te direcionar ao próximo movimento.",
   },
 ];
 
@@ -41,8 +41,9 @@ export function WelcomePage({ screens, onStart }) {
             <div className="hero-home-divider" />
 
             <p className="hero-home-support">
-              Um teste breve, sensível e bem guiado para revelar padrões que muitas
-              mulheres carregam por dentro durante anos, sem conseguir nomear.
+              Em poucos minutos, você vai ter uma primeira leitura sobre sinais que podem
+              estar por trás da sua exaustão, culpa, desorganização, mente acelerada e
+              dificuldade de começar.
             </p>
 
             <div className="hero-home-actions">

@@ -1,13 +1,14 @@
 import { startTransition, useEffect, useState } from "react";
 
+import { ScreenFrame } from "./components/ScreenFrame";
+import { clearQuizState, loadQuizState, saveQuizState } from "./lib/storage";
+import { fetchQuizConfig, submitLeadForm, submitQuizAnswers } from "./lib/api";
 import { IntroPage } from "./pages/IntroPage";
 import { LeadCapturePage } from "./pages/LeadCapturePage";
 import { QuizPage } from "./pages/QuizPage";
 import { ResultPage } from "./pages/ResultPage";
+import { ResultPreviewPage } from "./pages/ResultPreviewPage";
 import { WelcomePage } from "./pages/WelcomePage";
-import { fetchQuizConfig, submitLeadForm, submitQuizAnswers } from "./lib/api";
-import { clearQuizState, loadQuizState, saveQuizState } from "./lib/storage";
-import { ScreenFrame } from "./components/ScreenFrame";
 
 
 const DEFAULT_FLOW_STATE = {
@@ -55,33 +56,44 @@ function normalizePersistedState(savedState, config) {
     ),
   );
   const normalizedLead = normalizeLead(savedState.lead);
-
-  const hasCompleteResult =
-    savedState.screen === "result" &&
-    savedState.result &&
-    normalizedLead &&
-    Object.keys(sanitizedAnswers).length === config.questions.length;
-
+  const questionCount = config.questions.length;
+  const hasCompleteAnswers = Object.keys(sanitizedAnswers).length === questionCount;
   const boundedIndex = Math.min(
     Math.max(savedState.currentQuestionIndex || 0, 0),
-    Math.max(config.questions.length - 1, 0),
+    Math.max(questionCount - 1, 0),
   );
 
-  if (hasCompleteResult) {
+  if (savedState.screen === "result" && savedState.result && normalizedLead && hasCompleteAnswers) {
     return {
       answers: sanitizedAnswers,
-      currentQuestionIndex: config.questions.length - 1,
+      currentQuestionIndex: questionCount - 1,
       lead: normalizedLead,
       result: savedState.result,
       screen: "result",
     };
   }
 
-  if (
-    savedState.screen === "quiz" &&
-    normalizedLead &&
-    Object.keys(sanitizedAnswers).length > 0
-  ) {
+  if (savedState.screen === "lead" && savedState.result && hasCompleteAnswers) {
+    return {
+      answers: sanitizedAnswers,
+      currentQuestionIndex: questionCount - 1,
+      lead: normalizedLead,
+      result: savedState.result,
+      screen: "lead",
+    };
+  }
+
+  if (savedState.screen === "resultPreview" && savedState.result && hasCompleteAnswers) {
+    return {
+      answers: sanitizedAnswers,
+      currentQuestionIndex: questionCount - 1,
+      lead: normalizedLead,
+      result: savedState.result,
+      screen: "resultPreview",
+    };
+  }
+
+  if (savedState.screen === "quiz" && Object.keys(sanitizedAnswers).length > 0) {
     return {
       answers: sanitizedAnswers,
       currentQuestionIndex: boundedIndex,
@@ -91,19 +103,11 @@ function normalizePersistedState(savedState, config) {
     };
   }
 
-  if (savedState.screen === "intro" && normalizedLead) {
+  if (savedState.screen === "intro") {
     return {
       ...DEFAULT_FLOW_STATE,
       lead: normalizedLead,
       screen: "intro",
-    };
-  }
-
-  if (savedState.screen === "lead") {
-    return {
-      ...DEFAULT_FLOW_STATE,
-      lead: normalizedLead,
-      screen: "lead",
     };
   }
 
@@ -137,9 +141,7 @@ function App() {
           return;
         }
 
-        setErrorMessage(
-          "Não consegui carregar o teste agora. Tente novamente dentro de instantes.",
-        );
+        setErrorMessage("Não consegui carregar o teste agora. Tente novamente dentro de instantes.");
       } finally {
         if (isActive) {
           setIsBootstrapping(false);
@@ -174,7 +176,7 @@ function App() {
     startTransition(() => {
       setFlowState({
         ...DEFAULT_FLOW_STATE,
-        screen: "lead",
+        screen: "intro",
       });
     });
   }
@@ -191,13 +193,11 @@ function App() {
         setFlowState((currentState) => ({
           ...currentState,
           lead: nextLead,
-          screen: "intro",
+          screen: currentState.result ? "result" : "intro",
         }));
       });
     } catch (error) {
-      setErrorMessage(
-        "Não consegui salvar seus dados agora. Revise as informações e tente novamente.",
-      );
+      setErrorMessage("Não consegui salvar seus dados agora. Revise as informações e tente novamente.");
     } finally {
       setIsSavingLead(false);
     }
@@ -209,6 +209,16 @@ function App() {
       setFlowState((currentState) => ({
         ...currentState,
         screen: "quiz",
+      }));
+    });
+  }
+
+  function handleUnlockResult() {
+    setErrorMessage("");
+    startTransition(() => {
+      setFlowState((currentState) => ({
+        ...currentState,
+        screen: "lead",
       }));
     });
   }
@@ -262,18 +272,16 @@ function App() {
       const result = await submitQuizAnswers(payload, config);
 
       startTransition(() => {
-        setFlowState({
+        setFlowState((currentState) => ({
           answers: nextAnswers,
           currentQuestionIndex: config.questions.length - 1,
-          lead: flowState.lead,
+          lead: currentState.lead,
           result,
-          screen: "result",
-        });
+          screen: currentState.lead ? "result" : "resultPreview",
+        }));
       });
     } catch (error) {
-      setErrorMessage(
-        "Não consegui calcular o resultado agora. Tente novamente em alguns segundos.",
-      );
+      setErrorMessage("Não consegui calcular o resultado agora. Tente novamente em alguns segundos.");
     } finally {
       setIsSubmitting(false);
     }
@@ -332,16 +340,6 @@ function App() {
         <IntroPage screens={config.screens} onContinue={handleContinue} />
       ) : null}
 
-      {flowState.screen === "lead" ? (
-        <LeadCapturePage
-          errorMessage={errorMessage}
-          initialLead={flowState.lead}
-          isSubmitting={isSavingLead}
-          screens={config.screens}
-          onSubmit={handleLeadSubmit}
-        />
-      ) : null}
-
       {flowState.screen === "quiz" ? (
         <QuizPage
           answers={flowState.answers}
@@ -354,6 +352,23 @@ function App() {
           question={currentQuestion}
           total={config.questions.length}
           onAnswer={handleAnswer}
+        />
+      ) : null}
+
+      {flowState.screen === "resultPreview" && flowState.result ? (
+        <ResultPreviewPage
+          onContinue={handleUnlockResult}
+          result={flowState.result}
+        />
+      ) : null}
+
+      {flowState.screen === "lead" && flowState.result ? (
+        <LeadCapturePage
+          errorMessage={errorMessage}
+          initialLead={flowState.lead}
+          isSubmitting={isSavingLead}
+          screens={config.screens}
+          onSubmit={handleLeadSubmit}
         />
       ) : null}
 

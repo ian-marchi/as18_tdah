@@ -1,4 +1,4 @@
-const STORAGE_KEY = "tdah-feminino-quiz:v1";
+const STORAGE_KEY = "tdah-feminino-quiz:v2";
 
 
 export function loadQuizState() {

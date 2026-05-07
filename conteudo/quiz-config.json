@@ -7,16 +7,16 @@
   "screens": {
     "welcome": {
       "eyebrow": "Teste psicoeducativo",
-      "title": "Você sente que sua mente nunca para...",
-      "subtitle": "mesmo quando você está cansada?",
-      "cta": "Começar"
+      "title": "Teste rápido: sinais de TDAH feminino mascarado",
+      "subtitle": "Você sente que sua mente nunca para... mesmo quando você está exausta?",
+      "cta": "Fazer meu teste gratuito"
     },
     "leadCapture": {
-      "eyebrow": "Antes de liberar o teste",
-      "title": "Me conta como posso te chamar",
-      "body": "Preencha seus dados para começar agora e receber o próximo passo com clareza.",
-      "cta": "Liberar meu teste",
-      "privacyNote": "Seus dados servem para identificar seu resultado e te direcionar melhor depois do teste.",
+      "eyebrow": "Resultado completo",
+      "title": "Seu resultado inicial já foi calculado.",
+      "body": "Para receber sua leitura completa e salvar sua devolutiva, preencha seus dados abaixo.",
+      "cta": "Liberar meu resultado completo",
+      "privacyNote": "Seus dados servem para salvar sua devolutiva e te direcionar melhor depois do teste.",
       "fields": {
         "name": {
           "label": "Seu nome",
@@ -212,37 +212,43 @@
       "id": "atencao_01",
       "area": "atencao",
       "order": 1,
-      "text": "Eu me distraio com facilidade... mesmo quando eu realmente queria conseguir focar."
+      "text": "Eu me distraio com facilidade... mesmo quando eu realmente queria conseguir focar.",
+      "supportText": "Quando a atenção escapa, mesmo com esforço."
     },
     {
       "id": "atencao_02",
       "area": "atencao",
       "order": 2,
-      "text": "Eu começo algo... e no meio já nem lembro direito o que estava fazendo."
+      "text": "Eu começo uma coisa... mas no meio do caminho me perco, mudo de foco ou esqueço o que ia fazer.",
+      "supportText": "Perda do fio da ação, distração e troca involuntária de foco."
     },
     {
       "id": "atencao_03",
       "area": "atencao",
       "order": 3,
-      "text": "Eu perco coisas simples... e isso me dá a sensação de estar sempre “desorganizada”."
+      "text": "Eu vivo procurando as coisas... e fico irritada comigo mesma por parecer tão desorganizada.",
+      "supportText": "Chaves, celular, documentos, objetos do dia a dia... e a culpa que vem depois."
     },
     {
       "id": "atencao_04",
       "area": "atencao",
       "order": 4,
-      "text": "Eu até tento prestar atenção... mas minha mente parece ir para outro lugar sozinha."
+      "text": "Eu até tento prestar atenção... mas minha mente parece escapar para outro lugar sozinha.",
+      "supportText": "Como se eu estivesse presente por fora, mas distante por dentro."
     },
     {
       "id": "atencao_05",
       "area": "atencao",
       "order": 5,
-      "text": "Às vezes parece que minha mente está em vários lugares ao mesmo tempo... e em nenhum de verdade."
+      "text": "Às vezes minha mente parece estar em vários lugares ao mesmo tempo... e eu não consigo me sentir realmente presente.",
+      "supportText": "Como se eu estivesse fazendo uma coisa, pensando em outra e tentando acompanhar tudo ao mesmo tempo."
     },
     {
       "id": "execucao_01",
       "area": "execucao",
       "order": 6,
-      "text": "Eu sei exatamente o que preciso fazer... mas não consigo começar."
+      "text": "Eu sei exatamente o que preciso fazer... mas não consigo começar.",
+      "supportText": "Como se existisse um botão de iniciar dentro de mim... mas ele não respondesse."
     },
     {
       "id": "execucao_02",
@@ -254,79 +260,92 @@
       "id": "execucao_03",
       "area": "execucao",
       "order": 8,
-      "text": "Eu começo com vontade... mas não consigo manter até o final."
+      "text": "Eu adio coisas importantes... e depois me sinto culpada por ter deixado acumular.",
+      "supportText": "Como se eu só conseguisse agir quando a pressão fica grande demais."
     },
     {
       "id": "execucao_04",
       "area": "execucao",
       "order": 9,
-      "text": "Eu só consigo agir quando a pressão fica grande demais."
+      "text": "Eu costumo funcionar melhor na urgência... mas depois fico exausta por ter feito tudo no limite.",
+      "supportText": "Como se meu cérebro só “ligasse” quando não existe mais tempo para adiar."
     },
     {
       "id": "execucao_05",
       "area": "execucao",
       "order": 10,
-      "text": "Eu tento me organizar... mas parece que nada funciona por muito tempo."
+      "text": "Eu até consigo me organizar por um tempo... mas depois parece que tudo se perde de novo.",
+      "supportText": "Como se eu sempre precisasse recomeçar do zero."
     },
     {
       "id": "emocional_01",
       "area": "emocional",
       "order": 11,
-      "text": "Eu me sinto sobrecarregada... mesmo quando ninguém percebe isso."
+      "text": "Eu me sinto sobrecarregada por dentro... mesmo quando ninguém percebe isso por fora.",
+      "supportText": "Como se todo mundo visse que eu funciono, mas ninguém visse o quanto isso me custa."
     },
     {
       "id": "emocional_02",
       "area": "emocional",
       "order": 12,
-      "text": "Às vezes eu fico irritada ou ansiosa... e nem sei exatamente por quê."
+      "text": "Às vezes eu fico irritada ou ansiosa... como se tivesse coisa demais acontecendo dentro de mim.",
+      "supportText": "Como se eu estivesse reagindo a um acúmulo que ninguém vê."
     },
     {
       "id": "emocional_03",
       "area": "emocional",
       "order": 13,
-      "text": "Eu me cobro muito... e quase nunca sinto que é suficiente."
+      "text": "Eu me cobro muito... e mesmo quando faço bastante, sinto que ainda não foi suficiente.",
+      "supportText": "Como se eu precisasse me esforçar o dobro para sentir que estou minimamente dando conta."
     },
     {
       "id": "emocional_04",
       "area": "emocional",
       "order": 14,
-      "text": "Eu sinto as coisas de forma intensa... mesmo quando parecem pequenas."
+      "text": "Eu sinto pequenas situações com muita intensidade... e às vezes demoro para voltar ao normal.",
+      "supportText": "Como se algo simples me atravessasse por dentro mais do que eu gostaria."
     },
     {
       "id": "emocional_05",
       "area": "emocional",
       "order": 15,
-      "text": "Tem dias em que eu me sinto emocionalmente cansada... sem saber explicar direito."
+      "text": "Tem dias em que eu me sinto emocionalmente esgotada... como se tivesse sustentado coisas demais por dentro.",
+      "supportText": "Mesmo quando, por fora, parece que foi só mais um dia normal."
     },
     {
       "id": "sobrecarga_01",
       "area": "sobrecarga",
       "order": 16,
-      "text": "Por fora parece que eu dou conta... mas por dentro eu estou exausta."
+      "text": "Por fora, parece que eu dou conta... mas por dentro estou exausta.",
+      "supportText": "Como se eu tivesse aprendido a funcionar mesmo quando estou no limite."
     },
     {
       "id": "sobrecarga_02",
       "area": "sobrecarga",
       "order": 17,
-      "text": "Minha mente não desliga... nem quando eu estou tentando descansar."
+      "text": "Minha mente não desliga... nem quando estou tentando descansar.",
+      "supportText": "Como se meu corpo parasse, mas minha cabeça continuasse funcionando."
     },
     {
       "id": "sobrecarga_03",
       "area": "sobrecarga",
       "order": 18,
-      "text": "Eu sinto que estou sempre no limite... como se qualquer coisa fosse demais."
+      "text": "Eu sinto que vivo no limite... como se qualquer coisa a mais fosse demais.",
+      "supportText": "Como se eu estivesse tão cheia por dentro que até pequenas demandas pesassem muito."
     },
     {
       "id": "sobrecarga_04",
       "area": "sobrecarga",
       "order": 19,
-      "text": "Relaxar não é simples... é como se meu corpo estivesse sempre em alerta."
+      "text": "Mesmo quando tento descansar, meu corpo continua tenso... como se eu precisasse ficar em alerta.",
+      "supportText": "Como se relaxar parecesse perigoso, improdutivo ou difícil demais para o meu sistema."
     },
     {
       "id": "sobrecarga_05",
       "area": "sobrecarga",
       "order": 20,
-      "text": "Eu continuo funcionando... mas sinto que não estou realmente bem."
+      "text": "Eu continuo funcionando... mas, por dentro, sinto que não estou realmente bem.",
+      "supportText": "Como se eu estivesse dando conta da vida, mas me perdendo de mim no processo."
     }
   ],
   "resultBands": [
@@ -354,7 +373,7 @@
   ],
   "supportingCopy": {
     "coreMessage": "Esse teste não mede só distração. Ele revela o esforço invisível de quem aprendeu a funcionar, mesmo se sentindo sobrecarregada por dentro.",
-    "disclaimer": "Este teste é psicoeducativo e não substitui avaliação clínica ou neuropsicológica. Mas pode ser um primeiro passo importante para você entender como sua mente funciona.",
+    "disclaimer": "Esta leitura é psicoeducativa e não substitui avaliação clínica, neuropsicológica ou psiquiátrica.",
     "closingReflection": "Isso não define quem você é... mas pode ajudar a entender por que, muitas vezes, viver parece exigir mais esforço de você do que dos outros.",
     "conversionBridge": "Se você se reconheceu nesse resultado, o próximo passo não é tentar se esforçar mais. É entender o seu padrão.",
     "mapDescription": "O MAPA foi criado exatamente para isso: traduzir o seu funcionamento e te mostrar, com clareza, o que está por trás disso e como começar a sair desse ciclo.",
