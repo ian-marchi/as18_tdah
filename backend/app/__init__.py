@@ -1,4 +1,11 @@
-from .config import FRONTEND_DIST_DIR
+from .config import (
+    ADMIN_EMAIL,
+    ADMIN_PASSWORD,
+    FLASK_SECRET_KEY,
+    FRONTEND_DIST_DIR,
+    SESSION_COOKIE_SECURE,
+)
+from .services.database import initialize_database
 
 try:
     from flask_cors import CORS
@@ -9,9 +16,11 @@ except ImportError:  # pragma: no cover - optional until dependencies are instal
 def create_app():
     from flask import Flask
 
+    from .routes.admin import admin_bp
     from .routes.health import health_bp
     from .routes.leads import leads_bp
     from .routes.quiz import quiz_bp
+    from .routes.submissions import submissions_bp
 
     app = Flask(
         __name__,
@@ -19,13 +28,23 @@ def create_app():
         static_url_path="/",
     )
     app.config["JSON_SORT_KEYS"] = False
+    app.config["SECRET_KEY"] = FLASK_SECRET_KEY
+    app.config["ADMIN_EMAIL"] = ADMIN_EMAIL
+    app.config["ADMIN_PASSWORD"] = ADMIN_PASSWORD
+    app.config["SESSION_COOKIE_HTTPONLY"] = True
+    app.config["SESSION_COOKIE_SAMESITE"] = "Lax"
+    app.config["SESSION_COOKIE_SECURE"] = SESSION_COOKIE_SECURE
 
     if CORS is not None:
-        CORS(app, resources={r"/api/*": {"origins": "*"}})
+        CORS(app, resources={r"/api/*": {"origins": "*"}}, supports_credentials=True)
 
+    initialize_database()
+
+    app.register_blueprint(admin_bp, url_prefix="/api/admin")
     app.register_blueprint(health_bp, url_prefix="/api/health")
     app.register_blueprint(leads_bp, url_prefix="/api/leads")
     app.register_blueprint(quiz_bp, url_prefix="/api/quiz")
+    app.register_blueprint(submissions_bp, url_prefix="/api/submissions")
 
     register_frontend_routes(app)
     return app

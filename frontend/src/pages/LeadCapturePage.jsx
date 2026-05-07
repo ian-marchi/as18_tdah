@@ -170,7 +170,7 @@ export function LeadCapturePage({
               ))}
             </select>
             <span aria-hidden="true" className="select-field-chevron">
-              ▾
+              {"\u25be"}
             </span>
           </div>
           {fieldErrors.ageRange ? (

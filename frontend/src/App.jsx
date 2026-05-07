@@ -2,7 +2,8 @@ import { startTransition, useEffect, useState } from "react";
 
 import { ScreenFrame } from "./components/ScreenFrame";
 import { clearQuizState, loadQuizState, saveQuizState } from "./lib/storage";
-import { fetchQuizConfig, submitLeadForm, submitQuizAnswers } from "./lib/api";
+import { fetchQuizConfig, submitQuizAnswers, submitSubmission } from "./lib/api";
+import { DashboardPage } from "./pages/DashboardPage";
 import { IntroPage } from "./pages/IntroPage";
 import { LeadCapturePage } from "./pages/LeadCapturePage";
 import { QuizPage } from "./pages/QuizPage";
@@ -18,6 +19,11 @@ const DEFAULT_FLOW_STATE = {
   result: null,
   screen: "welcome",
 };
+
+
+function resolveAppRoute() {
+  return window.location.pathname.startsWith("/dashboard") ? "dashboard" : "public";
+}
 
 
 function normalizeLead(lead) {
@@ -106,7 +112,6 @@ function normalizePersistedState(savedState, config) {
   if (savedState.screen === "intro") {
     return {
       ...DEFAULT_FLOW_STATE,
-      lead: normalizedLead,
       screen: "intro",
     };
   }
@@ -115,7 +120,15 @@ function normalizePersistedState(savedState, config) {
 }
 
 
-function App() {
+function buildAnswerPayload(answers) {
+  return Object.entries(answers).map(([questionId, value]) => ({
+    questionId,
+    value,
+  }));
+}
+
+
+function PublicApp() {
   const [config, setConfig] = useState(null);
   const [flowState, setFlowState] = useState(DEFAULT_FLOW_STATE);
   const [isBootstrapping, setIsBootstrapping] = useState(true);
@@ -186,18 +199,26 @@ function App() {
     setIsSavingLead(true);
 
     try {
-      const response = await submitLeadForm(lead);
-      const nextLead = normalizeLead(response.lead) || normalizeLead(lead);
+      const answers = buildAnswerPayload(flowState.answers);
+      const response = await submitSubmission(
+        {
+          ...lead,
+          answers,
+          source: "quiz-dashboard-flow",
+        },
+        config,
+      );
+      const persistedLead = normalizeLead(response.submission) || normalizeLead(lead);
 
       startTransition(() => {
         setFlowState((currentState) => ({
           ...currentState,
-          lead: nextLead,
-          screen: currentState.result ? "result" : "intro",
+          lead: persistedLead,
+          screen: "result",
         }));
       });
     } catch (error) {
-      setErrorMessage("Não consegui salvar seus dados agora. Revise as informações e tente novamente.");
+      setErrorMessage(error.message || "Não consegui salvar seus dados agora. Tente novamente.");
     } finally {
       setIsSavingLead(false);
     }
@@ -380,6 +401,26 @@ function App() {
       ) : null}
     </>
   );
+}
+
+
+function App() {
+  const [route, setRoute] = useState(resolveAppRoute);
+
+  useEffect(() => {
+    function handlePopState() {
+      setRoute(resolveAppRoute());
+    }
+
+    window.addEventListener("popstate", handlePopState);
+    return () => window.removeEventListener("popstate", handlePopState);
+  }, []);
+
+  if (route === "dashboard") {
+    return <DashboardPage />;
+  }
+
+  return <PublicApp />;
 }
 
 
