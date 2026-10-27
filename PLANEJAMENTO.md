@@ -13,7 +13,7 @@ Agora temos definidos:
 - as faixas de interpretacao
 - o tom da tela de resultado
 - o disclaimer etico
-- a ponte de conversao para o MAPA
+- a ponte de conversao para o WhatsApp da psicologa
 
 Tambem deixei esse conteudo salvo em formato estruturado em `conteudo/quiz-config.json` para reaproveitarmos na implementacao.
 
@@ -138,7 +138,7 @@ Orientacao emocional:
 - ponte de conversao:
   - "Se voce se reconheceu nesse resultado, o proximo passo nao e tentar se esforcar mais. E entender o seu padrao."
 - CTA principal:
-  - "Quero meu MAPA completo"
+  - "Agende sua consulta pelo WhatsApp" (wa.me/5538991297000, mensagem padrao sem dados do resultado)
 
 ## 6. Fluxo da interface
 
